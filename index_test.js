@@ -1490,14 +1490,6 @@ const cellcontents = () => {
   document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
   document.getElementById(`cell108`).style.backgroundColor = "#7CFC00";
 };
-/* 
-#00FA9A
-#00BFFF
-orange
-#FFA500
-#DC143C
-#FFFF00
-*/
 
 function togglePopup(name) {
   var popup = document.getElementById(name);
