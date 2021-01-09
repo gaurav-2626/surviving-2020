@@ -1,6 +1,6 @@
 const num_rows = 9;
 const num_cols = 12;
-
+let colors = ["#ff8266", "#87CEEB", "#fff673", "#98FB98"];
 let players = [
   {
     id: 1,
@@ -58,295 +58,295 @@ let cells = [
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 2,
     showContent: "Collect Paycheck",
     hideContent: "Recieve $4000",
     changePosition: 0,
-    changeMoney:4000, 
+    changeMoney: 4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 3,
     showContent: "Good News!",
     hideContent: "Recieve a bonus of $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 4,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 5,
     showContent: "Donate!",
     hideContent: "Donate $1000 to wildfire relief",
     changePosition: 0,
-    changeMoney:-1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 6,
     showContent: "Overtime",
     hideContent: "Skip 1 turn and recieve $1k for your duties",
     changePosition: 0,
-    changeMoney: 1000, 
+    changeMoney: 1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 7,
     showContent: "BEWARE",
     hideContent: "Pay fees for online classe",
     changePosition: 0,
-    changeMoney: -4000, 
+    changeMoney: -4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 8,
     showContent: "Try your Luck",
     hideContent: "Roll the die to check your luck",
     changePosition: 10,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: true,
     checkMoney: false,
     condition: true,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 9,
     showContent: "Medical bills",
     hideContent: "Pay $2000",
     changePosition: 0,
-    changeMoney: -2000, 
+    changeMoney: -2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 10,
     showContent: "QUARANTINE",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 2,
-    state: []
+    state: 0,
   },
   {
     id: 11,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 12,
     showContent: "Stock Market Crash",
     hideContent: "Lost $3000 in the stock market crash",
     changePosition: 0,
-    changeMoney: -3000, 
+    changeMoney: -3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 13,
     showContent: "Get your Inheritance!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
-    changeMoney:10000, 
+    changeMoney: 10000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 14,
     showContent: "Alien Abduction",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
-    changeMoney:0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 15,
     showContent: "BEWARE",
     hideContent: "Pay company bills",
     changePosition: 0,
-    changeMoney: -4000, 
+    changeMoney: -4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 16,
     showContent: "Good News!",
     hideContent: "Work from home bonus of $2000",
     changePosition: 0,
-    changeMoney: 2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 17,
     showContent: "FINE!",
     hideContent: "Pay $1000 for not wearing a mask",
     changePosition: 0,
-    changeMoney: -1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 18,
     showContent: "Government Stimulus",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
-    changeMoney: 3000, 
+    changeMoney: 3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 19,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 20,
     showContent: "BIRTHDAY",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
-    changeMoney:3000, 
+    changeMoney: 3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 21,
     showContent: "Medical bills",
     hideContent: "Pay $2000",
     changePosition: 0,
-    changeMoney: -2000, 
+    changeMoney: -2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 22,
     showContent: "NETFLIX",
     hideContent: "Skip turn because you're binging",
     changePosition: 0,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 23,
     showContent: "Increased online sales",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney: 2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 24,
     showContent: "Increased Overtime",
     hideContent: "Receive $1000 and skip a turn",
     changePosition: 0,
-    changeMoney: 1000, 
+    changeMoney: 1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 25,
     showContent: "Donate!",
     hideContent: "Donate $1000 to frontline workers",
     changePosition: 0,
-    changeMoney:-1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 26,
@@ -357,8 +357,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 27,
@@ -369,8 +369,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 3
+    state: 0,
+    skipTurn: 3,
   },
   {
     id: 28,
@@ -381,8 +381,8 @@ let cells = [
     rollDie: false,
     checkMoney: true,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 29,
@@ -393,8 +393,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 30,
@@ -405,8 +405,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 31,
@@ -417,8 +417,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 32,
@@ -429,8 +429,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 33,
@@ -441,8 +441,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 1
+    state: 0,
+    skipTurn: 1,
   },
   {
     id: 34,
@@ -453,8 +453,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 35,
@@ -465,8 +465,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 36,
@@ -477,8 +477,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 37,
@@ -489,8 +489,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 1
+    state: 0,
+    skipTurn: 1,
   },
   {
     id: 38,
@@ -501,8 +501,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 39,
@@ -513,8 +513,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 40,
@@ -525,8 +525,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 41,
@@ -537,8 +537,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 42,
@@ -549,8 +549,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 43,
@@ -561,8 +561,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 44,
@@ -573,8 +573,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 45,
@@ -585,8 +585,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 2
+    state: 0,
+    skipTurn: 2,
   },
   {
     id: 46,
@@ -597,8 +597,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 47,
@@ -609,8 +609,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 48,
@@ -621,8 +621,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 49,
@@ -633,8 +633,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 50,
@@ -645,8 +645,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 51,
@@ -657,8 +657,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 1
+    state: 0,
+    skipTurn: 1,
   },
   {
     id: 52,
@@ -669,8 +669,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 53,
@@ -681,8 +681,8 @@ let cells = [
     rollDie: false,
     checkMoney: true, //if < 5K go back 5 steps.
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 54,
@@ -693,296 +693,296 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 55,
     showContent: "Collect Paycheck",
     hideContent: "Recieve $4000",
     changePosition: 0,
-    changeMoney:4000, 
+    changeMoney: 4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 56,
     showContent: "Good News!",
     hideContent: "Recieve a bonus of $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 57,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 58,
     showContent: "Donate!",
     hideContent: "Donate $1000 to wildfire relief",
     changePosition: 0,
-    changeMoney:-1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 59,
     showContent: "Overtime",
     hideContent: "Skip 1 turn and recieve $1k for your duties",
     changePosition: 0,
-    changeMoney: 1000, 
+    changeMoney: 1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 60,
     showContent: "BEWARE",
     hideContent: "Pay fees for online classe",
     changePosition: 0,
-    changeMoney: -4000, 
+    changeMoney: -4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 61,
     showContent: "Try your Luck",
     hideContent: "Roll the die to check your luck",
     changePosition: 10,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: true,
     checkMoney: false,
     condition: true,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 62,
     showContent: "Medical bills",
     hideContent: "Pay $2000",
     changePosition: 0,
-    changeMoney: -2000, 
+    changeMoney: -2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-   {
+  {
     id: 63,
     showContent: "QUARANTINE",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 2,
-    state: []
+    state: 0,
   },
   {
     id: 64,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 65,
     showContent: "Stock Market Crash",
     hideContent: "Lost $3000 in the stock market crash",
     changePosition: 0,
-    changeMoney: -3000, 
+    changeMoney: -3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 66,
     showContent: "Get your Inheritance!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
-    changeMoney:10000, 
+    changeMoney: 10000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 67,
     showContent: "Alien Abduction",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
-    changeMoney:0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 68,
     showContent: "BEWARE",
     hideContent: "Pay company bills",
     changePosition: 0,
-    changeMoney: -4000, 
+    changeMoney: -4000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 69,
     showContent: "Good News!",
     hideContent: "Work from home bonus of $2000",
     changePosition: 0,
-    changeMoney: 2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 70,
     showContent: "FINE!",
     hideContent: "Pay $1000 for not wearing a mask",
     changePosition: 0,
-    changeMoney: -1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 71,
     showContent: "Government Stimulus",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
-    changeMoney: 3000, 
+    changeMoney: 3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 72,
     showContent: "Recieve Dividend",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney:2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 73,
     showContent: "BIRTHDAY",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
-    changeMoney:3000, 
+    changeMoney: 3000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 74,
     showContent: "Medical bills",
     hideContent: "Pay $2000",
     changePosition: 0,
-    changeMoney: -2000, 
+    changeMoney: -2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 75,
     showContent: "NETFLIX",
     hideContent: "Skip turn because you're binging",
     changePosition: 0,
-    changeMoney: 0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 76,
     showContent: "Increased online sales",
     hideContent: "Recieve $2000",
     changePosition: 0,
-    changeMoney: 2000, 
+    changeMoney: 2000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 77,
     showContent: "Increased Overtime",
     hideContent: "Receive $1000 and skip a turn",
     changePosition: 0,
-    changeMoney: 1000, 
+    changeMoney: 1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 1,
-    state: []
+    state: 0,
   },
   {
     id: 78,
     showContent: "Donate!",
     hideContent: "Donate $1000 to frontline workers",
     changePosition: 0,
-    changeMoney:-1000, 
+    changeMoney: -1000,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 79,
@@ -993,8 +993,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 80,
@@ -1005,8 +1005,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 3
+    state: 0,
+    skipTurn: 3,
   },
   {
     id: 81,
@@ -1017,8 +1017,8 @@ let cells = [
     rollDie: false,
     checkMoney: true,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 82,
@@ -1029,8 +1029,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 83,
@@ -1041,8 +1041,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 84,
@@ -1053,8 +1053,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 85,
@@ -1065,8 +1065,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 86,
@@ -1077,8 +1077,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 1
+    state: 0,
+    skipTurn: 1,
   },
   {
     id: 87,
@@ -1089,8 +1089,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 88,
@@ -1101,8 +1101,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 89,
@@ -1113,8 +1113,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 90,
@@ -1125,8 +1125,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 1
+    state: 0,
+    skipTurn: 1,
   },
   {
     id: 91,
@@ -1137,8 +1137,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 92,
@@ -1149,8 +1149,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 93,
@@ -1161,8 +1161,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 94,
@@ -1173,8 +1173,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 95,
@@ -1185,8 +1185,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 96,
@@ -1197,8 +1197,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 97,
@@ -1209,8 +1209,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 98,
@@ -1221,8 +1221,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 2
+    state: 0,
+    skipTurn: 2,
   },
   {
     id: 99,
@@ -1233,8 +1233,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 100,
@@ -1245,8 +1245,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 101,
@@ -1257,8 +1257,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 102,
@@ -1269,8 +1269,8 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 103,
@@ -1281,20 +1281,20 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 104,
     showContent: "VACCINE!",
     hideContent: "You got the vaccine! You win!",
     changePosition: 0,
-    changeMoney:0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
   {
     id: 105,
@@ -1305,22 +1305,22 @@ let cells = [
     rollDie: false,
     checkMoney: true, //if < 5K go back 5 steps.
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
   {
     id: 106,
     showContent: "DIE!",
     hideContent: "You died and lost the game",
     changePosition: 0,
-    changeMoney:0, 
+    changeMoney: 0,
     rollDie: false,
     checkMoney: false,
     condition: false,
     skipTurn: 0,
-    state: []
+    state: 0,
   },
-  
+
   {
     id: 107,
     showContent: "Stock Market Crashed.",
@@ -1330,24 +1330,22 @@ let cells = [
     rollDie: false,
     checkMoney: false,
     condition: false,
-    state: [],
-    skipTurn : 0
+    state: 0,
+    skipTurn: 0,
   },
 
-
-{
-  id: 108,
-  showContent: "END",
-  hideContent: "YOU WIN!",
-  changePosition: 0,
-  changeMoney:0, 
-  rollDie: false,
-  checkMoney: false,
-  condition: false,
-  skipTurn: 0,
-  state: []
-}
-    
+  {
+    id: 108,
+    showContent: "END",
+    hideContent: "YOU WIN!",
+    changePosition: 0,
+    changeMoney: 0,
+    rollDie: false,
+    checkMoney: false,
+    condition: false,
+    skipTurn: 0,
+    state: 0,
+  },
 ];
 
 let turn = 0;
@@ -1369,28 +1367,31 @@ const newPath = (position,turn) => {
 
 
 const changePlace = (turn, diceValue) => {
-  let currentPlayer = players[turn];
-  let currentPosition = currentPlayer.position;
+  let currentPosition = players[turn].position;
+  let currentPlayer = document.querySelector(
+    `#cell${currentPosition} #p${turn}`
+  );
+  let currentCell = document.querySelector(`#cell${currentPosition}`);
+  currentCell.removeChild(currentPlayer);
+  cells[currentPosition - 1].state--;
+  if (cells[currentPosition - 1].state === 0) {
+    currentCell.textContent = cells[currentPosition - 1].showContent;
+  }
 
-  //some query to remove the pointer from cell
-  let cell = document.getElementById(`cell${currentPosition}`);
-  cell.textContent = `${currentPosition}`;
-
-  //some query to add pointer to next cell
   let nextPosition = currentPosition + diceValue;
   nextPosition = newPath(nextPosition,turn);
   if (nextPosition > 108) {
     nextPosition = 108;
     players[turn].finished = true;
-    //add turn finished query
-    let playersCard = document.getElementById(`player${turn}`);
     finished++;
   }
 
-  console.log(nextPosition);
-  cell = document.getElementById(`cell${nextPosition}`);
-  cell.textContent = `Player${turn}`;
-
+  let nextCell = document.querySelector(`#cell${nextPosition}`);
+  if (cells[nextPosition - 1].state === 0) {
+    nextCell.innerHTML = "";
+  }
+  nextCell.appendChild(currentPlayer);
+  cells[nextPosition - 1].state++;
   players[turn].position = nextPosition;
 };
 
@@ -1402,7 +1403,7 @@ const showTurn = (turn) => {
   playersCard.forEach((playerCard) => {
     let index = Number.parseInt(playerCard.id[6]);
     if (index === turn) {
-      playerCard.style.backgroundColor = "#eb4034";
+      playerCard.style.backgroundColor = colors[index];
       playerCard.style.color = "white";
     } else {
       playerCard.style.backgroundColor = "white";
@@ -1427,6 +1428,26 @@ const rollDice = () => {
   showTurn(turn);
 };
 
+const startGame = () => {
+  showTurn(0);
+  let startCell = document.getElementById(`cell1`);
+  startCell.innerHTML = "";
+
+  for (let i = 0; i < 4; i++) {
+    let player = document.createElement("div");
+    player.setAttribute("id", `p${i}`);
+
+    player.style.backgroundColor = colors[i];
+    player.style.height = "20px";
+    player.style.margin = "4px";
+    player.style.borderRadius = "10%";
+    player.style.border = "black 1px solid";
+
+    startCell.appendChild(player);
+  }
+  cells[0].state = 4;
+};
+
 const makecells = () => {
   let board = document.querySelector(".board-rows");
   for (let r = 1; r <= num_rows; r += 1) {
@@ -1439,7 +1460,6 @@ const makecells = () => {
       if (r % 2 == 0) {
         cellId = 12 * r - c + 1;
       }
-      ci.textContent = cellId;
       ci.className = "col-1 cell";
       ci.setAttribute("id", `cell${cellId}`);
       ri.appendChild(ci);
@@ -1449,16 +1469,18 @@ const makecells = () => {
 };
 
 const cellcontents = () => {
-  let board = document.querySelector(".board-rows");
   for (let r = 1; r <= num_rows; r += 1) {
     for (let c = 1; c <= num_cols; c += 1) {
       let cellId = 12 * (r - 1) + c;
       if (r % 2 == 0) {
         cellId = 12 * r - c + 1;
       }
-      ci = document.querySelector('#' + `cell${cellId}`);
-      ci.innerHTML = `<div class=\"cellContents popup\" onmouseover=\"myFunction(\'myPopup${cellId}\')\"> ${cells[cellId-1].showContent}<span class=\"popuptext\" id=\"myPopup${cellId}\">${cells[cellId-1].hideContent}</span></div>`;
-      console.log(ci, cells[cellId-1].showContent);
+      ci = document.querySelector("#" + `cell${cellId}`);
+      ci.innerHTML = `<div class=\"cellContents popup\" onmouseover=\"myFunction(\'myPopup${cellId}\')\"> ${
+        cells[cellId - 1].showContent
+      }<span class=\"popuptext\" id=\"myPopup${cellId}\">${
+        cells[cellId - 1].hideContent
+      }</span></div>`;
     }
   }
 };
@@ -1469,5 +1491,5 @@ function myFunction(name) {
 }
 
 makecells();
-showTurn(0);
 cellcontents();
+startGame();
