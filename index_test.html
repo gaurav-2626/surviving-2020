@@ -16,13 +16,21 @@
         crossorigin="anonymous"></script>
     <title>Board</title>
 </head>
-
 <body>
     <div class="container-fluid">
+        <div class="top"><h1><strong>2020</strong></h1></div>
+        <div class="row">
+            <div class="col-5">
+                <img src="assets/corona.jpeg" alt="Logo" style="float: right; width:20%;">
+            </div>
+            <div class="col-7" style="vertical-align: middle; display: flex;">
+                <h2 style="text-align: left;">Can you survive it?</h2>
+            </div>
+        </div>
         <div class="board">
             <div class="row">
-                <div class="col-8 board-rows"></div>
-                <div class="col-4 dashboard">
+                <div class="col-9 board-rows"></div>
+                <div class="col-3 dashboard">
                     <div class="row dice">
                         <button onclick="rollDice()" class="btn btn-lg btn-info text-white dice-button">Roll
                             Dice

@@ -158,7 +158,7 @@ let cells = [
   },
    {
     id: 10,
-    showContent: "QUARANTINE",
+    showContent: "Quarantine",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0, 
@@ -794,7 +794,7 @@ let cells = [
   },
    {
     id: 63,
-    showContent: "QUARANTINE",
+    showContent: "Quarantine",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0, 
@@ -1352,6 +1352,7 @@ let cells = [
 
 let turn = 0;
 let finished = 0;
+let colorPalatte = ['#00FA9A', '#00BFFF', '#FFA500', '#DC143C', '#FFFF00'];
 
 const changePlace = (turn, diceValue) => {
   let currentPlayer = players[turn];
@@ -1439,13 +1440,27 @@ const cellcontents = () => {
         cellId = 12 * r - c + 1;
       }
       ci = document.querySelector('#' + `cell${cellId}`);
-      ci.innerHTML = `<div class=\"cellContents popup\" onmouseover=\"myFunction(\'myPopup${cellId}\')\"> ${cells[cellId-1].showContent}<span class=\"popuptext\" id=\"myPopup${cellId}\">${cells[cellId-1].hideContent}</span></div>`;
+      ci.setAttribute("onmouseleave", `togglePopup(\'myPopup${cellId}\')`);
+      ci.setAttribute("onmouseover", `togglePopup(\'myPopup${cellId}\')`)
+      ci.innerHTML = `<div class=\"cellContents popup\"> ${cells[cellId-1].showContent}<span class=\"popuptext\" id=\"myPopup${cellId}\">${cells[cellId-1].hideContent}</span></div>`;
+      const randomColor = Math.floor((Math.random()*100)%5);
+      document.getElementById(`cell${cellId}`).style.backgroundColor = colorPalatte[randomColor];
       console.log(ci, cells[cellId-1].showContent);
     }
   }
+  document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
+  document.getElementById(`cell108`).style.backgroundColor = "#7CFC00";
 };
+/* 
+#00FA9A
+#00BFFF
+orange
+#FFA500
+#DC143C
+#FFFF00
+*/
 
-function myFunction(name) {
+function togglePopup(name) {
   var popup = document.getElementById(name);
   popup.classList.toggle("show");
 }
