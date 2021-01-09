@@ -32,6 +32,36 @@ let players = [
   },
 ];
 
+/* 
+{
+  id: id of the cell,
+  showContent: "The content to be displayed",
+  hideContent: "Show only when you hover",
+  changePosition: "+/- the number of positions",
+  changeMoney: "+/- amount of money",
+  rollDie: "boolean value. to roll or not to roll",
+  checkMoney: "boolean value. Check if money >= 3k",
+  condition: "",
+  state: "array of the number of people in that cells"
+}
+
+*/
+
+let cells = [
+  {
+    id: 1,
+    showContent: "START",
+    hideContent: "Begin here",
+    changePosition: 0,
+    changeMoney: 0,
+    rollDie: false,
+    checkMoney: false,
+    condition: false,
+    skipTurn: 0,
+    state: []
+  }
+];
+
 let turn = 0;
 
 const showTurn = (turn) => {
@@ -77,5 +107,26 @@ const makecells = () => {
   }
 };
 
+const cellcontents = () => {
+  let board = document.querySelector(".board-rows");
+  for (let r = 1; r <= num_rows; r += 1) {
+    for (let c = 1; c <= num_cols; c += 1) {
+      let cellId = 12 * (r - 1) + c;
+      if (r % 2 == 0) {
+        cellId = 12 * r - c + 1;
+      }
+      ci = document.querySelector('#' + `cell${cellId}`);
+      ci.innerHTML = `<div class=\"cellContents popup\" onmouseover=\"myFunction(\'myPopup${cellId}\')\"> ${cells[cellId-1].showContent}<span class=\"popuptext\" id=\"myPopup${cellId}\">${cells[cellId-1].hideContent}</span></div>`;
+      console.log(ci, cells[cellId-1].showContent);
+    }
+  }
+};
+
+function myFunction(name) {
+  var popup = document.getElementById(name);
+  popup.classList.toggle("show");
+}
+
 makecells();
 showTurn(0);
+cellcontents();
