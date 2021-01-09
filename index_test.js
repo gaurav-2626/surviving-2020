@@ -33,6 +33,32 @@ let players = [
 ];
 
 let turn = 0;
+let finished = 0;
+
+const changePlace = (turn, diceValue) => {
+  let currentPlayer = players[turn];
+  let currentPosition = currentPlayer.position;
+
+  //some query to remove the pointer from cell
+  let cell = document.getElementById(`cell${currentPosition}`);
+  cell.textContent = `${currentPosition}`;
+
+  //some query to add pointer to next cell
+  let nextPosition = currentPosition + diceValue;
+  if (nextPosition > 108) {
+    nextPosition = 108;
+    players[turn].finished = true;
+    //add turn finished query
+    let playersCard = document.getElementById(`player${turn}`);
+    finished++;
+  }
+
+  console.log(nextPosition);
+  cell = document.getElementById(`cell${nextPosition}`);
+  cell.textContent = `Player${turn}`;
+
+  players[turn].position = nextPosition;
+};
 
 const showTurn = (turn) => {
   let playersCard = document.querySelectorAll(".player");
@@ -60,7 +86,7 @@ const rollDice = () => {
     1} moved to Cell no. ${players[turn].position + value}`;
 
   $("#dice-modal").modal("show");
-
+  changePlace(turn, value);
   turn = (turn + 1) % 4;
   showTurn(turn);
 };
