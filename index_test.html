@@ -9,15 +9,56 @@
 </head>
 
 <body>
-    <div>
+    <div class="container-fluid">
         <div class="board">
             <div class="row">
                 <div class="col-8 board-rows"></div>
-                <div class="col-4"></div>
+                <div class="col-4 dashboard">
+                    <div class="row dice">
+                        <h1>DICE <span id="dice-value"></span></h1>
+                        <button onclick="rollDice()" class="btn btn-lg btn-info text-white dice-button">Roll
+                            Dice
+                        </button>
+                    </div>
+                    <div class="row players">
+                        <!--Players-->
+                        <div class="col-sm-6">
+                            <div class="card player" id="player0">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 1</h5>
+                                    <p class="card-text">Money</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card player" id="player1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 2</h5>
+                                    <p class="card-text">Money</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card player" id="player2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 3</h5>
+                                    <p class="card-text">Money</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card player" id="player3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 4</h5>
+                                    <p class="card-text">Money</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="index_test.js"></script>
+        <script src="index_test.js"></script>
 </body>
 
 </html>

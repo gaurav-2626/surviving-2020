@@ -1,9 +1,19 @@
 .board {
   margin-top: 100px;
+  margin-bottom: 100px;
   margin-left: 50px;
 }
 .cell {
   height: 100px;
   border: #000080 1px solid;
   background-color: aquamarine;
+}
+
+.dice {
+  text-align: center;
+  padding: 0 10px 0 10px;
+}
+
+.card {
+  margin-top: 10px;
 }
