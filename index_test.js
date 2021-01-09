@@ -1350,12 +1350,10 @@ let cells = [
 
 let turn = 0;
 let finished = 0;
-let colorPalatte = ['#00FA9A', '#00BFFF', '#FFA500', '#DC143C', '#FFFF00'];
+let colorPalatte = ["#00FA9A", "#00BFFF", "#FFA500", "#DC143C", "#FFFF00"];
 
-
-
-const newPath = (position,turn) => {
-  currentCell   = cells[position-1];
+const newPath = (position, turn) => {
+  currentCell = cells[position - 1];
   currentPlayer = players[turn];
   //console.log(players[turn].money);
   let newPosition = position + currentCell.changePosition;
@@ -1365,7 +1363,6 @@ const newPath = (position,turn) => {
   tag.textContent = "$" + `${players[turn].money}`;
   return newPosition;
 };
-
 
 const changePlace = (turn, diceValue) => {
   let currentPosition = players[turn].position;
@@ -1380,7 +1377,7 @@ const changePlace = (turn, diceValue) => {
   }
 
   let nextPosition = currentPosition + diceValue;
-  nextPosition = newPath(nextPosition,turn);
+  nextPosition = newPath(nextPosition, turn);
   if (nextPosition > 108) {
     nextPosition = 108;
     players[turn].finished = true;
@@ -1389,14 +1386,12 @@ const changePlace = (turn, diceValue) => {
 
   let nextCell = document.querySelector(`#cell${nextPosition}`);
   if (cells[nextPosition - 1].state === 0) {
-    nextCell.innerHTML = "";
+    nextCell.textContent = "";
   }
   nextCell.appendChild(currentPlayer);
   cells[nextPosition - 1].state++;
   players[turn].position = nextPosition;
 };
-
-
 
 const showTurn = (turn) => {
   let playersCard = document.querySelectorAll(".player");
@@ -1432,7 +1427,7 @@ const rollDice = () => {
 const startGame = () => {
   showTurn(0);
   let startCell = document.getElementById(`cell1`);
-  startCell.innerHTML = "";
+  startCell.textContent = "";
 
   for (let i = 0; i < 4; i++) {
     let player = document.createElement("div");
@@ -1476,13 +1471,20 @@ const cellcontents = () => {
       if (r % 2 == 0) {
         cellId = 12 * r - c + 1;
       }
-      ci = document.querySelector('#' + `cell${cellId}`);
-      ci.setAttribute("onmouseleave", `togglePopup(\'myPopup${cellId}\')`);
-      ci.setAttribute("onmouseover", `togglePopup(\'myPopup${cellId}\')`)
-      ci.innerHTML = `<div class=\"cellContents popup\"> ${cells[cellId-1].showContent}<span class=\"popuptext\" id=\"myPopup${cellId}\">${cells[cellId-1].hideContent}</span></div>`;
-      const randomColor = Math.floor((Math.random()*100)%5);
-      document.getElementById(`cell${cellId}`).style.backgroundColor = colorPalatte[randomColor];
-      console.log(ci, cells[cellId-1].showContent);
+      ci = document.querySelector("#" + `cell${cellId}`);
+      ci.setAttribute("data-bs-toggle", "popover-hover");
+      ci.textContent = `${cells[cellId - 1].showContent}`;
+
+      $('[data-bs-toggle="popover-hover"]').popover({
+        html: true,
+        trigger: "hover",
+        placement: "top",
+        content: `${cells[cellId - 1].hideContent}`,
+      });
+
+      const randomColor = Math.floor((Math.random() * 100) % 5);
+      document.getElementById(`cell${cellId}`).style.backgroundColor =
+        colorPalatte[randomColor];
     }
   }
   document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
