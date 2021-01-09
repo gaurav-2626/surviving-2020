@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Board
+        </title>
+        <style>
+            body {
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 1rem;
+            }
+            .section{
+                margin: auto;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .styled-table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                min-width: 70vw;
+                /*min-width: 70vw;*/
+                /*min-height: 50%;*/
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }
+            .styled-table thead tr {
+                background-color: #000080;
+                color: #ffffff;
+                text-align: left;
+            }
+
+            .styled-table th,
+            .styled-table td {
+                padding: 20px 20px;
+                border-right: 1px solid blue;
+                border-left: 1px solid blue;
+                border-top: 1px solid blue;
+                border-bottom: 1px solid blue;
+            }
+
+            .styled-table tbody tr {
+                border-right: 1px solid red;
+                border-top: 1px solid red;
+                border-left: 1px solidr red;
+                border-bottom: 1px solid red;
+                background-color: #f3f3f3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="section">
+        <table class="styled-table">
+            <tr>
+                <td class="cell board-corner" id="cell0">Zero</td>
+                <td class="cell board-top" id="cell1"></td>
+                <td class="cell board-top" id="cell2"></td>
+                <td class="cell board-top" id="cell3"></td>
+                <td class="cell board-top" id="cell4"></td>        
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell5"></td>
+                <td class="cell board-center" id="cell6"></td>
+                <td class="cell board-center" id="cell7"></td>
+                <td class="cell board-center" id="cell8"></td>
+                <td class="cell board-right" id="cell9"></td>        
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell10"></td>
+                <td class="cell board-center" id="cell11"></td>
+                <td class="cell board-center" id="cell12"></td>
+                <td class="cell board-center" id="cell13"></td>
+                <td class="cell board-right" id="cell14"></td>        
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell15"></td>
+                <td class="cell board-center" id="cell16"></td>
+                <td class="cell board-center" id="cell17"></td>
+                <td class="cell board-center" id="cell18"></td>
+                <td class="cell board-right" id="cell19"></td>        
+            </tr>
+            <tr>
+                <td class="cell board-corner" id="cell20"></td>
+                <td class="cell board-bottom" id="cell21"></td>
+                <td class="cell board-bottom" id="cell22"></td>
+                <td class="cell board-bottom" id="cell23"></td>
+                <td class="cell board-corner" id="cell24">Bottom</td>        
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>
