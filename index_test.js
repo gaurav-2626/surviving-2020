@@ -1353,6 +1353,21 @@ let cells = [
 let turn = 0;
 let finished = 0;
 
+
+
+const newPath = (position,turn) => {
+  currentCell   = cells[position-1];
+  currentPlayer = players[turn];
+  //console.log(players[turn].money);
+  let newPosition = position + currentCell.changePosition;
+  players[turn].money += currentCell.changeMoney;
+  //console.log(currentCell.changeMoney + " " + players[turn].money);
+  let tag = document.querySelector(`.players #player${turn} .amount`);
+  tag.textContent = "$" + `${players[turn].money}`;
+  return newPosition;
+};
+
+
 const changePlace = (turn, diceValue) => {
   let currentPlayer = players[turn];
   let currentPosition = currentPlayer.position;
@@ -1363,6 +1378,7 @@ const changePlace = (turn, diceValue) => {
 
   //some query to add pointer to next cell
   let nextPosition = currentPosition + diceValue;
+  nextPosition = newPath(nextPosition,turn);
   if (nextPosition > 108) {
     nextPosition = 108;
     players[turn].finished = true;
@@ -1377,6 +1393,8 @@ const changePlace = (turn, diceValue) => {
 
   players[turn].position = nextPosition;
 };
+
+
 
 const showTurn = (turn) => {
   let playersCard = document.querySelectorAll(".player");
