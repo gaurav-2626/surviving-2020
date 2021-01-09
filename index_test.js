@@ -63,6 +63,32 @@ let cells = [
 ];
 
 let turn = 0;
+let finished = 0;
+
+const changePlace = (turn, diceValue) => {
+  let currentPlayer = players[turn];
+  let currentPosition = currentPlayer.position;
+
+  //some query to remove the pointer from cell
+  let cell = document.getElementById(`cell${currentPosition}`);
+  cell.textContent = `${currentPosition}`;
+
+  //some query to add pointer to next cell
+  let nextPosition = currentPosition + diceValue;
+  if (nextPosition > 108) {
+    nextPosition = 108;
+    players[turn].finished = true;
+    //add turn finished query
+    let playersCard = document.getElementById(`player${turn}`);
+    finished++;
+  }
+
+  console.log(nextPosition);
+  cell = document.getElementById(`cell${nextPosition}`);
+  cell.textContent = `Player${turn}`;
+
+  players[turn].position = nextPosition;
+};
 
 const showTurn = (turn) => {
   let playersCard = document.querySelectorAll(".player");
@@ -70,18 +96,27 @@ const showTurn = (turn) => {
   playersCard.forEach((playerCard) => {
     let index = Number.parseInt(playerCard.id[6]);
     if (index === turn) {
-      playerCard.style.border = "red 5px solid";
+      playerCard.style.backgroundColor = "#eb4034";
+      playerCard.style.color = "white";
     } else {
-      playerCard.style.border = "none";
+      playerCard.style.backgroundColor = "white";
+      playerCard.style.color = "black";
     }
   });
 };
 
 const rollDice = () => {
   let value = Math.floor(Math.random() * 6) + 1;
-  let span = document.querySelector("#dice-value");
-  span.textContent = value;
 
+  document.querySelector(
+    "#dice-modal-title"
+  ).textContent = `Dice Rolled : ${value}`;
+
+  document.querySelector("#dice-modal-message").textContent = `Player ${turn +
+    1} moved to Cell no. ${players[turn].position + value}`;
+
+  $("#dice-modal").modal("show");
+  changePlace(turn, value);
   turn = (turn + 1) % 4;
   showTurn(turn);
 };
