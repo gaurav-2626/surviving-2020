@@ -40,17 +40,26 @@ const showTurn = (turn) => {
   playersCard.forEach((playerCard) => {
     let index = Number.parseInt(playerCard.id[6]);
     if (index === turn) {
-      playerCard.style.border = "red 5px solid";
+      playerCard.style.backgroundColor = "#eb4034";
+      playerCard.style.color = "white";
     } else {
-      playerCard.style.border = "none";
+      playerCard.style.backgroundColor = "white";
+      playerCard.style.color = "black";
     }
   });
 };
 
 const rollDice = () => {
   let value = Math.floor(Math.random() * 6) + 1;
-  let span = document.querySelector("#dice-value");
-  span.textContent = value;
+
+  document.querySelector(
+    "#dice-modal-title"
+  ).textContent = `Dice Rolled : ${value}`;
+
+  document.querySelector("#dice-modal-message").textContent = `Player ${turn +
+    1} moved to Cell no. ${players[turn].position + value}`;
+
+  $("#dice-modal").modal("show");
 
   turn = (turn + 1) % 4;
   showTurn(turn);
