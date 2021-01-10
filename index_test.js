@@ -163,7 +163,7 @@ let cells = [
   },
   {
     id: 10,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0,
@@ -199,7 +199,7 @@ let cells = [
   },
   {
     id: 13,
-    showContent: "Get your Inheritance!",
+    showContent: "Get your Legacy money!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -211,7 +211,7 @@ let cells = [
   },
   {
     id: 14,
-    showContent: "Alien Abduction",
+    showContent: "Alien Alert",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
     changeMoney: 0,
@@ -259,7 +259,7 @@ let cells = [
   },
   {
     id: 18,
-    showContent: "Government Stimulus",
+    showContent: "Stimulus Cheque",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
     changeMoney: 3000,
@@ -283,7 +283,7 @@ let cells = [
   },
   {
     id: 20,
-    showContent: "BIRTHDAY",
+    showContent: "Happy Birthday",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
     changeMoney: 3000,
@@ -415,7 +415,7 @@ let cells = [
   },
   {
     id: 31,
-    showContent: "You lost moneyyyy!!",
+    showContent: "You lost moneyy!!",
     hideContent: "Lol. Pay $4k now",
     changePosition: 0,
     changeMoney: -4000,
@@ -439,7 +439,7 @@ let cells = [
   },
   {
     id: 33,
-    showContent: "Alien Adduction!",
+    showContent: "Alien Alert!",
     hideContent: "You got abducted by aliens!",
     changePosition: 0,
     changeMoney: 0,
@@ -559,8 +559,8 @@ let cells = [
   },
   {
     id: 43,
-    showContent: "Insurance Premimum",
-    hideContent: "You lost $1000",
+    showContent: "Insurance cost",
+    hideContent: "You have to pay $1000",
     changePosition: 0,
     changeMoney: -1000,
     rollDie: false,
@@ -583,7 +583,7 @@ let cells = [
   },
   {
     id: 45,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "You have to stay in Quarantine.",
     changePosition: 0,
     changeMoney: 0,
@@ -799,7 +799,7 @@ let cells = [
   },
   {
     id: 63,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0,
@@ -835,7 +835,7 @@ let cells = [
   },
   {
     id: 66,
-    showContent: "Get your Inheritance!",
+    showContent: "Get your Legacy money!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -847,7 +847,7 @@ let cells = [
   },
   {
     id: 67,
-    showContent: "Alien Abduction",
+    showContent: "Alien Alert",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
     changeMoney: 0,
@@ -895,7 +895,7 @@ let cells = [
   },
   {
     id: 71,
-    showContent: "Government Stimulus",
+    showContent: "Stimulus Cheque",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
     changeMoney: 3000,
@@ -919,7 +919,7 @@ let cells = [
   },
   {
     id: 73,
-    showContent: "BIRTHDAY",
+    showContent: "Happy Birthday",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
     changeMoney: 3000,
@@ -1051,7 +1051,7 @@ let cells = [
   },
   {
     id: 84,
-    showContent: "You lost moneyyyy!!",
+    showContent: "You lost moneyy!!",
     hideContent: "Lol. Pay $4k now",
     changePosition: 0,
     changeMoney: -4000,
@@ -1075,7 +1075,7 @@ let cells = [
   },
   {
     id: 86,
-    showContent: "Alien Adduction!",
+    showContent: "Alien Alert!",
     hideContent: "You got abducted by aliens!",
     changePosition: 0,
     changeMoney: 0,
@@ -1219,7 +1219,7 @@ let cells = [
   },
   {
     id: 98,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "You have to stay in Quarantine.",
     changePosition: 0,
     changeMoney: 0,
@@ -1665,16 +1665,47 @@ const makePopovers = () => {
       }
       let ci = document.querySelector(`#cell${cellId}`);
       ci.setAttribute("data-bs-toggle", "popover-hover");
+      ci.textContent = `${cells[cellId - 1].showContent}`;
+
+      const randomColor = Math.floor((Math.random() * 100) % 5);
+      document.getElementById(`cell${cellId}`).style.backgroundColor =
+        colorPalatte[randomColor];
+
       $('[data-bs-toggle="popover-hover"]').popover({
         html: true,
         trigger: "hover",
         placement: "top",
         content: `${cells[cellId - 1].hideContent}`,
+        delay: { show: 0, hide: 20 },
+        title: "What will happen",
       });
     }
   }
+  document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
+  document.getElementById(`cell108`).style.backgroundColor = "#7CFC00";
+  document.getElementById(`cell1`).style.fontFamily = "Hana";
+  document.getElementById(`cell108`).style.fontFamily = "Hana";
+  document.getElementById(`cell1`).style.fontSize = "22px";
+  document.getElementById(`cell108`).style.fontSize = "32px";
 };
 
+function togglePopup(name) {
+  var popup = document.getElementById(name);
+  popup.classList.toggle("show");
+}
+var myAudio = document.getElementById("myAudio");
+var isPlaying = false;
+
+function togglePlay() {
+  isPlaying ? myAudio.pause() : myAudio.play();
+}
+
+myAudio.onplaying = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+};
 makecells();
-makePopovers();
+cellcontents();
 startGame();
