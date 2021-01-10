@@ -7,28 +7,32 @@ let players = [
     turn: true,
     finished: false,
     position: 1,
-    money: 1000,
+    money: 10000,
+    skip: 0,
   },
   {
     id: 2,
     turn: false,
     finished: false,
     position: 1,
-    money: 1000,
+    money: 10000,
+    skip: 0,
   },
   {
     id: 3,
     turn: false,
     finished: false,
     position: 1,
-    money: 1000,
+    money: 10000,
+    skip: 0,
   },
   {
     id: 4,
     turn: false,
     finished: false,
     position: 1,
-    money: 1000,
+    money: 10000,
+    skip: 0,
   },
 ];
 
@@ -41,8 +45,9 @@ let players = [
   changeMoney: "+/- amount of money",
   rollDie: "boolean value. to roll or not to roll",
   checkMoney: "boolean value. Check if money >= 3k",
-  condition: "",
+  condition: boolean,
   state: "array of the number of people in that cells"
+  skipTurn: "integer value to skip turns"
 }
 
 */
@@ -123,7 +128,7 @@ let cells = [
   {
     id: 7,
     showContent: "BEWARE",
-    hideContent: "Pay fees for online classe",
+    hideContent: "Pay fees for online classes",
     changePosition: 0,
     changeMoney: -4000,
     rollDie: false,
@@ -1337,7 +1342,7 @@ let cells = [
   {
     id: 108,
     showContent: "END",
-    hideContent: "YOU WIN!",
+    hideContent: "YOU ARE AT THE END!",
     changePosition: 0,
     changeMoney: 0,
     rollDie: false,
@@ -1352,19 +1357,165 @@ let turn = 0;
 let finished = 0;
 let colorPalatte = ["#00FA9A", "#00BFFF", "#FFA500", "#DC143C", "#FFFF00"];
 
-const newPath = (position, turn) => {
-  currentCell = cells[position - 1];
-  currentPlayer = players[turn];
-  //console.log(players[turn].money);
-  let newPosition = position + currentCell.changePosition;
-  players[turn].money += currentCell.changeMoney;
-  //console.log(currentCell.changeMoney + " " + players[turn].money);
-  let tag = document.querySelector(`.players #player${turn} .amount`);
-  tag.textContent = "$" + `${players[turn].money}`;
-  return newPosition;
+const executeTask = (currentPosition) => {
+  let currentCell = document.querySelector(`#cell${currentPosition}`);
+  let currentPlayer = document.querySelector(
+    `#cell${currentPosition} #p${turn}`
+  );
+  let message = "";
+  let title = "";
+  if (cells[currentPosition - 1].condition) {
+    if (cells[currentPosition - 1].rollDie) {
+      let newValue = Math.floor(Math.random() * 6) + 1;
+      title += `Dice rolled again : ${newValue}`;
+      if (newValue % 2) {
+        players[turn].position += 1;
+        players[turn].position =
+          players[turn].position >= 108 ? 108 : players[turn].position;
+        message = "Dice value is ODD. Jump to next cell.</br>";
+      } else {
+        players[turn].position += cells[currentPosition - 1].changePosition;
+        players[turn].position =
+          players[turn].position >= 108 ? 108 : players[turn].position;
+        message = `Dice value is ODD. Move ${
+          cells[currentPosition - 1].changePosition
+        } cells ahead.</br>`;
+      }
+      message += `Player ${turn + 1} jumped to Cell no. ${
+        players[turn].position
+      }</br>`;
+    } else if (cells[currentPosition - 1].checkMoney) {
+      title += "Are you rich?";
+      if (players[turn].money < 3000) {
+        players[turn].position += 1;
+        players[turn].position =
+          players[turn].position >= 108 ? 108 : players[turn].position;
+        message = "Players doesn't have enough money. Jump to next cell.</br>";
+      } else {
+        players[turn].position += cells[currentPosition - 1].changePosition;
+        players[turn].position =
+          players[turn].position >= 108 ? 108 : players[turn].position;
+        message = `Congratulations, You have worked hard. Move ${
+          cells[currentPosition - 1].changePosition
+        } cells ahead.</br>`;
+      }
+      message += `Player ${turn + 1} jumped to Cell no. ${
+        players[turn].position
+      }</br>`;
+    }
+  } else {
+    title += "Card task executed";
+    if (cells[currentPosition - 1].changePosition) {
+      players[turn].position += cells[currentPosition - 1].changePosition;
+      players[turn].position =
+        players[turn].position >= 108 ? 108 : players[turn].position;
+      message += `Player ${turn + 1} jumped to Cell no. ${
+        players[turn].position
+      }</br>`;
+    }
+    if (cells[currentPosition - 1].changeMoney) {
+      players[turn].money += cells[currentPosition - 1].changeMoney;
+      message += `Player ${turn + 1} now has $${players[turn].money}</br>`;
+    }
+    if (cells[currentPosition - 1].skipTurn) {
+      players[turn].skip += cells[currentPosition - 1].skipTurn;
+      if (players[turn].skip === 1) {
+        message = `Player ${turn + 1} cannot move for ${
+          players[turn].skip
+        } turn</br>`;
+      } else {
+        message = `Player ${turn + 1} cannot move for ${
+          players[turn].skip
+        } turns</br>`;
+      }
+    }
+  }
+
+  if (players[turn].position === 108) {
+    players[turn].finished = true;
+    players[turn].skip = Number.POSITIVE_INFINITY;
+    finished++;
+
+    let playerCard = document.querySelector(`.players #player${turn}`);
+    playerCard.style.backgroundColor = "white";
+    playerCard.style.color = "black";
+    playerCard.style.boxShadow = `10px 20px 30px ${colors[turn]}`;
+  }
+
+  // display this on modal
+  document.querySelector("#dice-modal-title").textContent = title;
+  document.querySelector("#dice-modal-message").innerHTML = message;
+
+  // switch buttons (Lets Go -> End Turn)
+  document.querySelector("#task-button").style.display = "none";
+  document.querySelector("#end-turn").style.display = "block";
+  // move actual player to new spot
+  currentCell.removeChild(currentPlayer);
+  cells[currentPosition - 1].state--;
+  if (cells[currentPosition - 1].state === 0) {
+    currentCell.textContent = cells[currentPosition - 1].showContent;
+  }
+  let nextCell = document.querySelector(`#cell${players[turn].position}`);
+  if (cells[players[turn].position - 1].state === 0) {
+    nextCell.textContent = "";
+  }
+  nextCell.appendChild(currentPlayer);
+  cells[players[turn].position - 1].state++;
+  // change money amount in dashboard
+  let playerCard = document.querySelector(`.players #player${turn} .amount`);
+  playerCard.textContent = "$" + `${players[turn].money}`;
+
+  if (finished === 4) {
+    // display the result button
+    document.querySelector(".result-button").style.display = "block";
+    return;
+  }
+
+  // changing turns
+  turn = (turn + 1) % 4;
+
+  while (players[turn].skip != 0) {
+    players[turn].skip--;
+    turn = (turn + 1) % 4;
+  }
+
+  showTurn();
 };
 
-const changePlace = (turn, diceValue) => {
+const getWinner = () => {
+  let winnerId = 0;
+  let maxMoney = 0;
+  players.forEach((player) => {
+    if (player.money > maxMoney) {
+      maxMoney = player.money;
+      winnerId = player.id;
+    }
+  });
+  return winnerId;
+};
+
+const showResults = () => {
+  // showing the task on the cell
+  let winner = getWinner();
+  document.querySelector(
+    "#result-modal-title"
+  ).textContent = `Player ${winner} WON`;
+
+  document.querySelector("#result-modal-message").innerHTML = `
+    Player 1 has $${players[0].money}</br>
+    Player 2 has $${players[1].money}</br>
+    Player 3 has $${players[2].money}</br>
+    Player 4 has $${players[3].money}</br>
+  `;
+
+  document.querySelector("#reset-button").onclick = () => {
+    window.location.reload();
+  };
+
+  $("#result-modal").modal("show");
+};
+
+const changePlace = (diceValue) => {
   let currentPosition = players[turn].position;
   let currentPlayer = document.querySelector(
     `#cell${currentPosition} #p${turn}`
@@ -1377,11 +1528,16 @@ const changePlace = (turn, diceValue) => {
   }
 
   let nextPosition = currentPosition + diceValue;
-  nextPosition = newPath(nextPosition, turn);
-  if (nextPosition > 108) {
+  if (nextPosition >= 108) {
     nextPosition = 108;
     players[turn].finished = true;
+    players[turn].skip = Number.POSITIVE_INFINITY;
     finished++;
+    // only highlight the player who has finished
+    let playerCard = document.querySelector(`.players #player${turn}`);
+    playerCard.style.backgroundColor = "white";
+    playerCard.style.color = "black";
+    playerCard.style.boxShadow = `10px 20px 30px ${colors[turn]}`;
   }
 
   let nextCell = document.querySelector(`#cell${nextPosition}`);
@@ -1391,9 +1547,47 @@ const changePlace = (turn, diceValue) => {
   nextCell.appendChild(currentPlayer);
   cells[nextPosition - 1].state++;
   players[turn].position = nextPosition;
+
+  // showing the task on the cell
+  document.querySelector(
+    "#dice-modal-title"
+  ).textContent = `Dice rolled : ${diceValue}`;
+
+  document.querySelector("#dice-modal-message").innerHTML = `
+    Player ${turn + 1} moved to Cell no. ${nextPosition}</br>
+    ${cells[nextPosition - 1].hideContent}
+  `;
+
+  document.querySelector("#task-button").onclick = () => {
+    executeTask(nextPosition, turn);
+  };
+
+  if (players[turn].finished) {
+    document.querySelector("#task-button").style.display = "none";
+    document.querySelector("#end-turn").style.display = "block";
+    if (finished === 4) {
+      // display the result button
+      document.querySelector(".result-button").style.display = "block";
+      return;
+    }
+    // changing turns
+    turn = (turn + 1) % 4;
+
+    while (players[turn].skip != 0) {
+      players[turn].skip--;
+      turn = (turn + 1) % 4;
+    }
+
+    showTurn();
+  } else {
+    document.querySelector("#task-button").style.display = "block";
+    document.querySelector("#end-turn").style.display = "none";
+  }
+
+  $("#dice-modal").modal("show");
 };
 
-const showTurn = (turn) => {
+const showTurn = () => {
   let playersCard = document.querySelectorAll(".player");
 
   playersCard.forEach((playerCard) => {
@@ -1411,21 +1605,12 @@ const showTurn = (turn) => {
 const rollDice = () => {
   let value = Math.floor(Math.random() * 6) + 1;
 
-  document.querySelector(
-    "#dice-modal-title"
-  ).textContent = `Dice Rolled : ${value}`;
-
-  document.querySelector("#dice-modal-message").textContent = `Player ${turn +
-    1} moved to Cell no. ${players[turn].position + value}`;
-
-  $("#dice-modal").modal("show");
-  changePlace(turn, value);
-  turn = (turn + 1) % 4;
-  showTurn(turn);
+  changePlace(value);
 };
 
 const startGame = () => {
-  showTurn(0);
+  showTurn();
+  document.querySelector(".result-button").style.display = "none";
   let startCell = document.getElementById(`cell1`);
   startCell.textContent = "";
 
@@ -1458,44 +1643,38 @@ const makecells = () => {
       }
       ci.className = "col-1 cell";
       ci.setAttribute("id", `cell${cellId}`);
+      ci.textContent = `${cells[cellId - 1].showContent}`;
+
+      const randomColor = Math.floor((Math.random() * 100) % 5);
+      ci.style.backgroundColor = colorPalatte[randomColor];
+
       ri.appendChild(ci);
     }
     board.appendChild(ri);
   }
+  document.getElementById("cell1").style.backgroundColor = "#7CFC00";
+  document.getElementById("cell108").style.backgroundColor = "#7CFC00";
 };
 
-const cellcontents = () => {
+const makePopovers = () => {
   for (let r = 1; r <= num_rows; r += 1) {
     for (let c = 1; c <= num_cols; c += 1) {
       let cellId = 12 * (r - 1) + c;
       if (r % 2 == 0) {
         cellId = 12 * r - c + 1;
       }
-      ci = document.querySelector("#" + `cell${cellId}`);
+      let ci = document.querySelector(`#cell${cellId}`);
       ci.setAttribute("data-bs-toggle", "popover-hover");
-      ci.textContent = `${cells[cellId - 1].showContent}`;
-
       $('[data-bs-toggle="popover-hover"]').popover({
         html: true,
         trigger: "hover",
         placement: "top",
         content: `${cells[cellId - 1].hideContent}`,
       });
-
-      const randomColor = Math.floor((Math.random() * 100) % 5);
-      document.getElementById(`cell${cellId}`).style.backgroundColor =
-        colorPalatte[randomColor];
     }
   }
-  document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
-  document.getElementById(`cell108`).style.backgroundColor = "#7CFC00";
 };
 
-function togglePopup(name) {
-  var popup = document.getElementById(name);
-  popup.classList.toggle("show");
-}
-
 makecells();
-cellcontents();
+makePopovers();
 startGame();

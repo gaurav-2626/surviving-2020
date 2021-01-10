@@ -33,6 +33,11 @@ h2 {
   padding: 0 10px 0 10px;
 }
 
+.results {
+  text-align: center;
+  padding: 50px 10px 0 10px;
+}
+
 .card {
   margin-top: 10px;
 }

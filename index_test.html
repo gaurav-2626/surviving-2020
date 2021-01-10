@@ -16,9 +16,12 @@
         crossorigin="anonymous"></script>
     <title>Board</title>
 </head>
+
 <body>
     <div class="container-fluid">
-        <div class="top"><h1><strong>2020</strong></h1></div>
+        <div class="top">
+            <h1><strong>2020</strong></h1>
+        </div>
         <div class="row">
             <div class="col-5">
                 <img src="assets/corona.jpeg" alt="Logo" style="float: right; width:20%;">
@@ -42,7 +45,7 @@
                             <div class="card player" id="player0">
                                 <div class="card-body">
                                     <h5 class="card-title">Player 1</h5>
-                                    <p class="card-text amount">$1000</p>
+                                    <p class="card-text amount">$10000</p>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +53,7 @@
                             <div class="card player" id="player1">
                                 <div class="card-body">
                                     <h5 class="card-title">Player 2</h5>
-                                    <p class="card-text amount">$1000</p>
+                                    <p class="card-text amount">$10000</p>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +61,7 @@
                             <div class="card player" id="player2">
                                 <div class="card-body">
                                     <h5 class="card-title">Player 3</h5>
-                                    <p class="card-text amount">$1000</p>
+                                    <p class="card-text amount">$10000</p>
                                 </div>
                             </div>
                         </div>
@@ -66,10 +69,15 @@
                             <div class="card player" id="player3">
                                 <div class="card-body">
                                     <h5 class="card-title">Player 4</h5>
-                                    <p class="card-text amount">$1000</p>
+                                    <p class="card-text amount">$10000</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row results">
+                        <button onclick="showResults()" class="btn btn-lg btn-success text-white result-button">
+                            SEE RESULTS
+                        </button>
                     </div>
                 </div>
             </div>
@@ -85,7 +93,29 @@
                         <p id="dice-modal-message"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Let's Go</button>
+                        <button type="button" class="btn btn-success" id="task-button">
+                            Let's Go
+                        </button>
+                        <button type="button" class="btn btn-danger" id="end-turn" data-dismiss="modal">
+                            End Turn
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="result-modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="result-modal-title"></h5>
+                    </div>
+                    <div class="modal-body">
+                        <p id="result-modal-message"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="reset-button">
+                            RESET GAME
+                        </button>
                     </div>
                 </div>
             </div>
