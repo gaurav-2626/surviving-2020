@@ -55,8 +55,11 @@ The entire board game was written using JavaScript, CSS and HTML! `Surviving 202
 
 The web interface is simple and easy to use. To execute, simply:
 
+1. Open our [live website](https://gaurav-2626.github.io/surviving-2020/).
+
+Or,
 1. Clone this repository with git clone `https://github.com/gaurav-2626/surviving-2020`.
-2. Navigate to the root folder of the project and run the `index_test.html` file in your browser.
+2. Navigate to the root folder of the project and run the `index.html` file in your browser.
 3. You're all set. Enjoy!
 
 ## Contributing
@@ -78,6 +81,7 @@ The entire `Surviving 2020` application was built by [Gaurav Agrawal](https://ww
 
 `Surviving 2020` wouldn't be possible without the following resources:
 
+* [Need You](https://ncs.io/NeedYou): The music was provided by **[Lost Sky](https://ncs.io/artist/279/lost-sky) from [NCS](https://ncs.io/)**. We would like to sincerely thank the artist for their amazing music. We're honestly hooked! <3
 * [Bootstrap](https://getbootstrap.com)
 * [Freepik from Flaticon](https://www.flaticon.com/authors/freepik)
 * [Google Fonts](https://fonts.google.com/)
