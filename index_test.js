@@ -1485,12 +1485,16 @@ const cellcontents = () => {
         placement: "top",
         content: `${cells[cellId - 1].hideContent}`,
         delay: { "show": 0, "hide": 20 },
-        title: 'Info',
+        title: 'What will happen',
       });
     }
   }
   document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";
   document.getElementById(`cell108`).style.backgroundColor = "#7CFC00";
+  document.getElementById(`cell1`).style.fontFamily = "Hana";
+  document.getElementById(`cell108`).style.fontFamily = "Hana";
+  document.getElementById(`cell1`).style.fontSize = '22px';
+  document.getElementById(`cell108`).style.fontSize = '32px';
 };
 
 function togglePopup(name) {
