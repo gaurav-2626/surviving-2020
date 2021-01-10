@@ -1604,7 +1604,9 @@ const showTurn = () => {
 
 const rollDice = () => {
   let value = Math.floor(Math.random() * 6) + 1;
-
+  document
+    .querySelector(".img1")
+    .setAttribute("src", "assets/dice" + value + ".png");
   changePlace(value);
 };
 
@@ -1707,5 +1709,5 @@ myAudio.onpause = function() {
   isPlaying = false;
 };
 makecells();
-cellcontents();
+makePopovers();
 startGame();
