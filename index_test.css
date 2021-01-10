@@ -29,12 +29,13 @@
   font-size: 300%;
   font-family: "EastSeaDokdo";
 }
+
 .board {
   margin-top: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   margin-left: 10px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Kufam";
   padding: 50px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
