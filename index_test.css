@@ -3,7 +3,18 @@
   font-family: EastSeaDokdo;
   src: url(assets/fonts/EastSeaDokdo-Regular.ttf)
 }
-
+@font-face{
+  font-family: Hana;
+  src: url(assets/fonts/HanaleiFill-Regular.ttf)
+}
+@font-face{
+  font-family: Kufam;
+  src: url(assets/fonts/Kufam-Italic-VariableFont_wght.ttf)
+}
+@font-face{
+  font-family: Cinzel;
+  src: url(assets/fonts/Cinzel-VariableFont_wght.ttf)
+}
 .container-fluid {
   background-color: #fffafa;
   margin-top: 20px;
@@ -24,22 +35,26 @@
   margin-left: 10px;
   font-size: 12px;
   font-weight: bold;
-  /*font-family: "EastSeaDokdo";*/
+  font-family: "Kufam";
   padding: 50px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .cell {
   height: 100px;
-<<<<<<< HEAD
-  border: #ffffff 0.5px dotted;
-  padding: 0px 5px;
-=======
   border: #ffffff 0.2px dotted;
 }
+.popover-header {
+  font-family: "Cinzel";
+  font-weight: bold;
+  background-color: #696969;
+  color: #DAA520;
 
+}
+.popover-body {
+  font-family: "Cinzel";
+}
 .col-1 cell{
   text-align: left;
->>>>>>> 461803944e14b64aff8bee8b9c591f39a521de70
 }
 
 .dice {
@@ -63,58 +78,4 @@
 
 img {
   width: 80%;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #DAA520;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
