@@ -1414,7 +1414,7 @@ const rollDice = () => {
   document.querySelector(
     "#dice-modal-title"
   ).textContent = `Dice Rolled : ${value}`;
-
+  document.querySelector(".img1").setAttribute("src", "assets/dice" + value + ".png"); 
   document.querySelector("#dice-modal-message").textContent = `Player ${turn +
     1} moved to Cell no. ${players[turn].position + value}`;
 
