@@ -194,7 +194,7 @@ let cells = [
   },
   {
     id: 13,
-    showContent: "Get your Inheritance!",
+    showContent: "Inheritance!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -410,8 +410,8 @@ let cells = [
   },
   {
     id: 31,
-    showContent: "You lost moneyyyy!!",
-    hideContent: "Lol. Pay $4k now",
+    showContent: "Lost money!",
+    hideContent: "Lol. Pay $4k now.",
     changePosition: 0,
     changeMoney: -4000,
     rollDie: false,
@@ -830,7 +830,7 @@ let cells = [
   },
   {
     id: 66,
-    showContent: "Get your Inheritance!",
+    showContent: "Inheritance!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -1046,7 +1046,7 @@ let cells = [
   },
   {
     id: 84,
-    showContent: "You lost moneyyyy!!",
+    showContent: "Lost money!",
     hideContent: "Lol. Pay $4k now",
     changePosition: 0,
     changeMoney: -4000,
@@ -1475,16 +1475,18 @@ const cellcontents = () => {
       ci.setAttribute("data-bs-toggle", "popover-hover");
       ci.textContent = `${cells[cellId - 1].showContent}`;
 
+      const randomColor = Math.floor((Math.random() * 100) % 5);
+      document.getElementById(`cell${cellId}`).style.backgroundColor =
+        colorPalatte[randomColor];
+
       $('[data-bs-toggle="popover-hover"]').popover({
         html: true,
         trigger: "hover",
         placement: "top",
         content: `${cells[cellId - 1].hideContent}`,
+        delay: { "show": 0, "hide": 20 },
+        title: 'Info',
       });
-
-      const randomColor = Math.floor((Math.random() * 100) % 5);
-      document.getElementById(`cell${cellId}`).style.backgroundColor =
-        colorPalatte[randomColor];
     }
   }
   document.getElementById(`cell1`).style.backgroundColor = "#7CFC00";

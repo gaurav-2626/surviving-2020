@@ -1,31 +1,40 @@
+/*http://fonts.google.com/*/
+@font-face{
+  font-family: EastSeaDokdo;
+  src: url(assets/fonts/EastSeaDokdo-Regular.ttf)
+}
+
 .container-fluid {
   background-color: #fffafa;
-}
-.top {
   margin-top: 20px;
 }
-h1 {
-  text-align: center;
-  font-family: "Trocchi";
+#title {
+  text-align: left;
+  font-size: 500%;
+  font-family: "EastSeaDokdo";
 }
-h2 {
-  text-align: center;
-  font-family: "Source Sans Pro";
+#subtitle {
+  text-align: left;
+  font-size: 300%;
+  font-family: "EastSeaDokdo";
 }
 .board {
   margin-top: 15px;
   margin-bottom: 100px;
   margin-left: 10px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: "EastSeaDokdo";*/
   padding: 50px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .cell {
   height: 100px;
-  border: #ffffff 0.5px dotted;
-  padding: 0 15px;
+  border: #ffffff 0.2px dotted;
+}
+
+.col-1 cell{
+  text-align: left;
 }
 
 .dice {
