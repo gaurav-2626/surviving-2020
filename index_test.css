@@ -18,9 +18,10 @@
   font-size: 300%;
   font-family: "EastSeaDokdo";
 }
+
 .board {
   margin-top: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   margin-left: 10px;
   font-size: 12px;
   font-weight: bold;
@@ -30,16 +31,7 @@
 }
 .cell {
   height: 100px;
-<<<<<<< HEAD
   border: #ffffff 0.5px dotted;
-  padding: 0px 5px;
-=======
-  border: #ffffff 0.2px dotted;
-}
-
-.col-1 cell{
-  text-align: left;
->>>>>>> 461803944e14b64aff8bee8b9c591f39a521de70
 }
 
 .dice {
