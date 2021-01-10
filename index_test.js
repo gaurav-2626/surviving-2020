@@ -1501,7 +1501,19 @@ function togglePopup(name) {
   var popup = document.getElementById(name);
   popup.classList.toggle("show");
 }
+var myAudio = document.getElementById("myAudio");
+var isPlaying = false;
 
+function togglePlay() {
+  isPlaying ? myAudio.pause() : myAudio.play();
+};
+
+myAudio.onplaying = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+};
 makecells();
 cellcontents();
 startGame();
