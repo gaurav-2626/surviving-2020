@@ -158,7 +158,7 @@ let cells = [
   },
   {
     id: 10,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0,
@@ -194,7 +194,7 @@ let cells = [
   },
   {
     id: 13,
-    showContent: "Get your Inheritance!",
+    showContent: "Get your Legacy money!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -206,7 +206,7 @@ let cells = [
   },
   {
     id: 14,
-    showContent: "Alien Abduction",
+    showContent: "Alien Alert",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
     changeMoney: 0,
@@ -254,7 +254,7 @@ let cells = [
   },
   {
     id: 18,
-    showContent: "Government Stimulus",
+    showContent: "Stimulus Cheque",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
     changeMoney: 3000,
@@ -278,7 +278,7 @@ let cells = [
   },
   {
     id: 20,
-    showContent: "BIRTHDAY",
+    showContent: "Happy Birthday",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
     changeMoney: 3000,
@@ -410,7 +410,7 @@ let cells = [
   },
   {
     id: 31,
-    showContent: "You lost moneyyyy!!",
+    showContent: "You lost moneyy!!",
     hideContent: "Lol. Pay $4k now",
     changePosition: 0,
     changeMoney: -4000,
@@ -434,7 +434,7 @@ let cells = [
   },
   {
     id: 33,
-    showContent: "Alien Adduction!",
+    showContent: "Alien Alert!",
     hideContent: "You got abducted by aliens!",
     changePosition: 0,
     changeMoney: 0,
@@ -554,8 +554,8 @@ let cells = [
   },
   {
     id: 43,
-    showContent: "Insurance Premimum",
-    hideContent: "You lost $1000",
+    showContent: "Insurance cost",
+    hideContent: "You have to pay $1000",
     changePosition: 0,
     changeMoney: -1000,
     rollDie: false,
@@ -578,7 +578,7 @@ let cells = [
   },
   {
     id: 45,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "You have to stay in Quarantine.",
     changePosition: 0,
     changeMoney: 0,
@@ -794,7 +794,7 @@ let cells = [
   },
   {
     id: 63,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "Skip 2 moves because you are in QUARANTINE",
     changePosition: 0,
     changeMoney: 0,
@@ -830,7 +830,7 @@ let cells = [
   },
   {
     id: 66,
-    showContent: "Get your Inheritance!",
+    showContent: "Get your Legacy money!",
     hideContent: "Recieve $10,000 as your inheritance",
     changePosition: 0,
     changeMoney: 10000,
@@ -842,7 +842,7 @@ let cells = [
   },
   {
     id: 67,
-    showContent: "Alien Abduction",
+    showContent: "Alien Alert",
     hideContent: "Got abducted by Aliensss, skip one move",
     changePosition: 0,
     changeMoney: 0,
@@ -890,7 +890,7 @@ let cells = [
   },
   {
     id: 71,
-    showContent: "Government Stimulus",
+    showContent: "Stimulus Cheque",
     hideContent: "Recieve $5000 from Government",
     changePosition: 0,
     changeMoney: 3000,
@@ -914,7 +914,7 @@ let cells = [
   },
   {
     id: 73,
-    showContent: "BIRTHDAY",
+    showContent: "Happy Birthday",
     hideContent: "Recieve $3000 as your present",
     changePosition: 0,
     changeMoney: 3000,
@@ -1046,7 +1046,7 @@ let cells = [
   },
   {
     id: 84,
-    showContent: "You lost moneyyyy!!",
+    showContent: "You lost moneyy!!",
     hideContent: "Lol. Pay $4k now",
     changePosition: 0,
     changeMoney: -4000,
@@ -1070,7 +1070,7 @@ let cells = [
   },
   {
     id: 86,
-    showContent: "Alien Adduction!",
+    showContent: "Alien Alert!",
     hideContent: "You got abducted by aliens!",
     changePosition: 0,
     changeMoney: 0,
@@ -1214,7 +1214,7 @@ let cells = [
   },
   {
     id: 98,
-    showContent: "Quarantine",
+    showContent: "Alone time",
     hideContent: "You have to stay in Quarantine.",
     changePosition: 0,
     changeMoney: 0,
