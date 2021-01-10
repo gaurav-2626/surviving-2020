@@ -10,10 +10,11 @@
   <a href="https://github.com/gaurav-2626/surviving-2020">
     <img src="assets/svg/ugly-monster.svg" alt="Logo" width="50">
   </a>
-  <h3 align="center">Surviving 2020</h3>
+<h3 align="center"><a href="https://gaurav-2626.github.io/surviving-2020/">Surviving 2020</a></h3>
   <p align="center">
-    Welcome to the GitHub repository of our digital board game!
-    <br />
+  <strong>Link to our <a href="https://gaurav-2626.github.io/surviving-2020/">live website</a>.</strong>
+  <br />
+    Welcome to the GitHub repository of our digital board game! <br />
     <a href="https://github.com/gaurav-2626/surviving-2020/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     ·
