@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/gaurav-2626/surviving-2020">
-    <img src="assets/svg/ugly-monster.svg" alt="Logo" width="50">
+    <img src="assets/monsters/ugly-monster.svg" alt="Logo" width="50">
   </a>
 <h3 align="center"><a href="https://gaurav-2626.github.io/surviving-2020/">Surviving 2020</a></h3>
   <p align="center">
@@ -47,6 +47,8 @@
 
 This repository contains the source code for *Surviving 2020*- a digital board game. Our game emulates the **life in 2020** under the global coronavirus pandemic, political turmoil, wildfires, unemployment and many other _real-life issues_ faced by the entire world. So, **let's roll the dice and land on our fate!**
 
+This project was originally made in our participation of [Snakes and Hackers 2021](https://devpost.com/software/surviving-2020).
+
 ### Built With
 
 The entire board game was written using JavaScript, CSS and HTML! `Surviving 2020` was made possible by [many](#acknowledements) open-sourced libraries and frameworks.
@@ -84,6 +86,7 @@ The entire `Surviving 2020` application was built by [Gaurav Agrawal](https://ww
 * [Need You](https://ncs.io/NeedYou): The music was provided by **[Lost Sky](https://ncs.io/artist/279/lost-sky) from [NCS](https://ncs.io/)**. We would like to sincerely thank the artist for their amazing music. We're honestly hooked! <3
 * [Bootstrap](https://getbootstrap.com)
 * [Freepik from Flaticon](https://www.flaticon.com/authors/freepik)
+* [Screely](https://www.screely.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [Img Shields](https://shields.io)
 
@@ -100,4 +103,4 @@ The entire `Surviving 2020` application was built by [Gaurav Agrawal](https://ww
 [issues-url]: https://github.com/gaurav-2626/surviving-2020/issues
 [license-shield]: https://img.shields.io/apm/l/vim-mode
 [license-url]: https://github.com/gaurav-2626/surviving-2020/blob/master/LICENSE
-[product-screenshot]: assets/screenshot.PNG
+[product-screenshot]: assets/screenshot.png
