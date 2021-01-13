@@ -1606,7 +1606,7 @@ const rollDice = () => {
   let value = Math.floor(Math.random() * 6) + 1;
   document
     .querySelector(".img1")
-    .setAttribute("src", "assets/dice" + value + ".png");
+    .setAttribute("src", "assets/dice/dice" + value + ".png");
   changePlace(value);
 };
 
@@ -1695,6 +1695,7 @@ function togglePopup(name) {
   var popup = document.getElementById(name);
   popup.classList.toggle("show");
 }
+// Music Code
 var myAudio = document.getElementById("myAudio");
 var isPlaying = false;
 
@@ -1708,6 +1709,8 @@ myAudio.onplaying = function() {
 myAudio.onpause = function() {
   isPlaying = false;
 };
+
+// Make the board and start the game
 makecells();
 makePopovers();
 startGame();

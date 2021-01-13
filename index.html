@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <link href="assets/svg/ugly-monster.svg" rel="icon">
-    <link rel="stylesheet" href="index_test.css">
+    <link href="assets/monsters/ugly-monster.svg" rel="icon">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/preloader.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -18,43 +19,54 @@
     <title>Surviving 2020</title>
 </head>
 
-<body>
-    <div class="container-fluid">
+<body onload="showPage()">
+    <!-- Preloader -->
+    <div class="preloader-wrap">
+        <span class="loader">
+            <span class="loader-inner">
+            </span>
+        </span>
+    </div>
+
+    <!-- Main Body -->
+    <div id="mainPage" class="container-fluid">
+        <!-- Header of the body -->
         <div class="row">
             <div class="col-4">
-                <img src="assets/svg/ugly-monster.svg" alt="Logo" style="float: right; width:20%;">
+                <img src="assets/monsters/ugly-monster.svg" alt="Logo" style="float: right; width:20%;">
             </div>
             <div class="col-6">
                 <span id="title"><strong>2020 | </strong></span>
                 <span id="subtitle">Can <strong>you</strong> survive it?</span>
             </div>
             <div class="col-2" style="text-align: right">
-                <audio id="myAudio" src="assets/Lost Sky - Need You [NCS Release].mp3">
+                <audio id="myAudio" src="assets/Lost Sky - Need You [NCS Release].mp3" loop>
                 </audio>
                 <div>
                     <a onclick="togglePlay()"><img src="assets/music-note-beamed.svg" style=" width:20%;">
                     </a>
-
                 </div>
                 <br />
                 <div>
-
                     <a href="https://github.com/gaurav-2626/surviving-2020">
                         <div style="text-align: right;">
-                            <img src="assets/GitHub-Mark/PNG/GitHub-Mark-64px.png" style="width: 20%; ">
+                            <img src="assets/github/PNG/GitHub-Mark-64px.png" style="width: 20%; ">
                         </div>
                     </a>
-
                 </div>
             </div>
         </div>
+        <!-- Game -->
         <div class="board">
             <div class="row">
-                <div class="col-9 board-rows"></div>
+                <!-- Actual Board -->
+                <div class="col-9 board-rows">
+                </div>
+                <!-- Dashboard to roll the dice and display logs -->
                 <div class="col-3 dashboard">
                     <div class="row dice">
                         <p>
-                            <img class="img1" src="assets/dice0.png">
+                            <img class="img1" src="assets/dice/dice0.png">
                         </p>
                         <button onclick="rollDice()" class="btn btn-lg btn-info text-white dice-button">Roll
                             Dice
@@ -143,24 +155,25 @@
         </div>
         <footer class="small text-center text-muted">
             <div>
-                <img src="assets/svg/scary-monster.svg" alt="Logo" style="float: center; width:5%;">
-                <img src="assets/svg/egg-shaped-monster.svg" alt="Logo" style="float: center; width:5%;">
-                <img src="assets/svg/one-eyed-horned-monster.svg" alt="Logo" style="float: center; width:5%;">
-                <img src="assets/svg/cartoon-monster.svg" alt="Logo" style="float: center; width:5%;">
-                <img src="assets/svg/cat-head-monster-with-tentacles.svg" alt="Logo" style="float: center; width:5%;">
+                <a href="https://github.com/shridpant" target="_blank"><img src="assets/monsters/scary-monster.svg" alt="Shrid" style="float: center; width:5%;"></a>
+                <a href="https://github.com/MehulSharma19" target="_blank"><img src="assets/monsters/cartoon-monster.svg" alt="Mehul" style="float: center; width:5%;"></a>
+                <a href="https://github.com/gaurav-2626" target="_blank"><img src="assets/monsters/egg-shaped-monster.svg" alt="Gaurav" style="float: center; width:5%;"></a>
+                <a href="https://github.com/tdhankhar" target="_blank"><img src="assets/monsters/cat-head-monster-with-tentacles.svg" alt="Tarun" style="float: center; width:5%;"></a>
             </div>
             <br />
             This is an open source project. Follow the documentation to <a
-                href="https://github.com/gaurav-2626/surviving-2020" target="_blank">learn more</a>.
+                href="https://github.com/gaurav-2626/surviving-2020/blob/main/README.md" target="_blank">learn more</a>.
             Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
                 href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>.
             <br />
             Music was provided by <a href="https://ncs.io/">NCS</a>. <a href="https://ncs.io/NeedYou">Hear it out!</a>
         </footer>
-        <script src="index_test.js"></script>
+        <script src="static/board.js"></script>
+        <script src="static/preloader.js"></script>
         <!--
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         -->
+    </div>
 </body>
 
 </html>

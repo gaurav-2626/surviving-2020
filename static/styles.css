@@ -1,23 +1,24 @@
 /*http://fonts.google.com/*/
 @font-face{
   font-family: EastSeaDokdo;
-  src: url(assets/fonts/EastSeaDokdo-Regular.ttf)
+  src: url(../assets/fonts/EastSeaDokdo-Regular.ttf)
 }
 @font-face{
   font-family: Hana;
-  src: url(assets/fonts/HanaleiFill-Regular.ttf)
+  src: url(../assets/fonts/HanaleiFill-Regular.ttf)
 }
 @font-face{
   font-family: Kufam;
-  src: url(assets/fonts/Kufam-Italic-VariableFont_wght.ttf)
+  src: url(../assets/fonts/Kufam-Italic-VariableFont_wght.ttf)
 }
 @font-face{
   font-family: Cinzel;
-  src: url(assets/fonts/Cinzel-VariableFont_wght.ttf)
+  src: url(../assets/fonts/Cinzel-VariableFont_wght.ttf)
 }
 .container-fluid {
   background-color: #fffafa;
   margin-top: 20px;
+  display: none;
 }
 #title {
   text-align: left;
