@@ -103,4 +103,4 @@ The entire `Surviving 2020` application was built by [Gaurav Agrawal](https://ww
 [issues-url]: https://github.com/gaurav-2626/surviving-2020/issues
 [license-shield]: https://img.shields.io/apm/l/vim-mode
 [license-url]: https://github.com/gaurav-2626/surviving-2020/blob/master/LICENSE
-[product-screenshot]: assets/screenshot.png
+[product-screenshot]: assets/screenshot.PNG
